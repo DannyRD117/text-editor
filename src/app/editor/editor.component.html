@@ -1,0 +1,24 @@
+<app-menu-bar [editor]="editor"></app-menu-bar>
+<div class="text-editror-container">
+    <div *ngIf="editor.isEmpty" class="editor-placeholder">
+        <h1>Título</h1>
+        <p>Texto</p>
+    </div>
+    <tiptap-editor [editor]="editor"></tiptap-editor>
+</div>
+
+<button (click)="setNobleTeamTamplate()">Noble team template</button>
+
+<h4>Content in JSON</h4>
+<div>
+    {{editor.getJSON() | json}}
+</div>
+<h4>Content in HTML</h4>
+<div>
+    {{editor.getHTML()}}
+</div>
+<h4>Content in Text</h4>
+<div>
+    {{editor.getText()}}
+</div>
+

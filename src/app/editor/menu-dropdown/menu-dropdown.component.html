@@ -1,0 +1,8 @@
+<button class="menu-button" [matMenuTriggerFor]="menu" [title]="menuDropdownConfig.title">
+    <span class="material-symbols-rounded">
+        {{menuDropdownConfig.icon}}
+    </span>
+</button>
+<mat-menu #menu="matMenu">
+    <ng-content></ng-content>
+</mat-menu>

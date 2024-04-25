@@ -1,0 +1,5 @@
+<button class="menu-button" [ngClass]="{'menu-button--active': menuBarConfig?.isActive()}" (click)="menuBarConfig?.action()" [title]="menuBarConfig.title">
+    <span class="material-symbols-rounded">
+        {{menuBarConfig.icon}}
+    </span>
+</button>

@@ -1,0 +1,32 @@
+<app-menu-item *ngFor="let item of items" [menuBarConfig]="item"></app-menu-item>
+
+<app-menu-dropdown [menuDropdownConfig]="textFormatMenu">
+    <div class="format-menu">
+        <div *ngFor="let headingItem of headingItems">
+            <button class="menu-button" [ngClass]="{'menu-button--active': headingItem?.isActive()}" [title]="headingItem.title" (click)="headingItem.action()">{{headingItem.title}}</button>
+        </div>
+        <div>
+            <app-menu-item *ngFor="let item of items" [menuBarConfig]="item"></app-menu-item>
+        </div>
+    </div>
+</app-menu-dropdown>
+
+<app-menu-item *ngFor="let item of otherItems" [menuBarConfig]="item"></app-menu-item>
+
+<app-menu-dropdown [menuDropdownConfig]="imageMenu">
+    <div class="format-menu" (click)="$event.stopPropagation()">
+        <input 
+            style="display: none;"
+            type="file" 
+            #imageFile 
+            (change)="onFileSelected($event)" 
+            accept="image/png, image/jpeg"
+        >
+        <button type="button" (click)="imageFile.click()">Upload Image</button>
+        <input type="url" #imageUrl placeholder="Paste the image link...">
+        <button type="button" (click)="addImageByUrl(imageUrl.value)">Search</button>
+    </div>
+</app-menu-dropdown>
+
+
+
